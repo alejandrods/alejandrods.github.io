@@ -167,13 +167,15 @@ footer a:hover {
 }
 
 .about-content a {
-    color: #0066cc;
-    text-decoration: none;
+    color: #353535;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
     font-weight: 500;
 }
 
 .about-content a:hover {
-    text-decoration: underline;
+    text-decoration-thickness: 2px;
 }
 
 @media screen and (min-width: 769px) {
