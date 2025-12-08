@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Home Page - Alex Diaz</title>
+    <meta name="description"
+          content="Alex Diaz personal site">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <meta name="robots" content="all">
+    <meta content="en_EN" property="og:locale">
+    <meta content="Alex Diaz, Machine Learning Engineering" property="og:site_name">
+    <meta content="website" property="og:type">
+    <meta content="https://www.alexdiaz.io" property="og:url">
+    <meta content="Alex Diaz, Machine Learning Engineering" property="og:title">
+    <meta content="The portfolio of Machine Learning Engineer, Alex Diaz." property="og:description">
+    <meta content="https://github.com/alejandrods" property="og:see_also">
+    <link rel="stylesheet" type="text/css" media="all" href="assets/stylesheets/main_free.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="assets/stylesheets/home.css"/>
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link href="assets/fontawesome-free-6.6.0-web/css/all.min.css" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<!--    <link rel="manifest" href="/site.webmanifest">-->
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Load universal header and footer -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        jQuery(document).ready(function ($) {
+            $("#header").load("assets/views/header.html #home");
+            $("#footer").load("assets/views/footer.html");
+        });
+    </script>
+</head>
+<body>
+<!-- Define Menu -->
+<div id="header"></div>
+
+<!-- Title Page -->
+<div class="container" id="first-content"
+     style="background: linear-gradient(90deg, hsla(298, 68%, 90%, 1) 0%, hsla(30, 82%, 91%, 1) 100%);">
+    <div class="home-container">
+        <div class="home-intro">
+            <h1 class="title">Hello 👋</h1>
+            <p class="text">I am Alex Diaz<br> a Senior Machine Learning Engineer<br> in the European Commission.</p>
+
+            <p><em>My work focuses on developing machine learning solutions for real-world applications.</em></p>
+            <div><a href="about.html" class="button icon">Read More <i class="fa-solid fa-arrow-right"></i></a></div>
+        </div>
+        <div class="home-profile">
+            <img src="assets/figures/profile.png" alt="Alex Diaz Profile">
+        </div>
+    </div>
+</div>
+
+<!-- Footer Page -->
+<div id="footer"></div>
+</body>
+</html>
