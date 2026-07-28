@@ -13,7 +13,7 @@
 }
 
 /* Navigation Styles */
-#home, #about {
+#home, #about, #publications, #experience {
     position: absolute;
     top: 0;
     left: 0;
@@ -79,19 +79,19 @@
 }
 
 @media screen and (min-width: 769px) {
-    #home, #about {
+    #home, #about, #publications, #experience {
         padding: 3vh calc(15vw - (100vw - 100%)) 2vh 15vw;
     }
 }
 
 @media screen and (min-width: 992px) {
-    #home, #about {
+    #home, #about, #publications, #experience {
         padding: 3vh calc(20vw - (100vw - 100%)) 2vh 20vw;
     }
 }
 
 @media screen and (min-width: 1200px) {
-    #home, #about {
+    #home, #about, #publications, #experience {
         padding: 3vh calc(24vw - (100vw - 100%)) 2vh 24vw;
     }
 }
@@ -241,14 +241,42 @@ footer a:hover {
     padding: 2vh 0;
 }
 
-.home-profile img {
+.home-profile .tilt {
     width: 100%;
     max-width: 400px;
-    height: auto;
+    perspective: 900px;
+}
+
+.home-profile .tilt-inner {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    transform-style: preserve-3d;
+    box-shadow: var(--shadow-x, 0px) var(--shadow-y, 0px) 60px rgba(0, 0, 0, 0.15);
+    transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+    will-change: transform;
+}
+
+/* While the pointer is over the image, follow it closely instead of easing. */
+.home-profile .tilt.is-tilting .tilt-inner {
+    transition: transform 0.12s ease-out, box-shadow 0.12s ease-out;
+    box-shadow: var(--shadow-x, 0px) var(--shadow-y, 0px) 70px rgba(0, 0, 0, 0.28);
+}
+
+.home-profile .tilt-inner img {
+    display: block;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
-    box-shadow: 0 0 60px rgba(0, 0, 0, 0.15);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .home-profile .tilt-inner {
+        transition: none;
+    }
 }
 
 /* Mobile portrait mode - increase top padding to avoid overlap with wrapped header */
@@ -260,7 +288,7 @@ footer a:hover {
 
 /* Mobile landscape mode - reduce image size to avoid overlap with header */
 @media screen and (max-width: 768px) and (orientation: landscape) {
-    .home-profile img {
+    .home-profile .tilt {
         max-width: 180px;
     }
 
@@ -326,4 +354,198 @@ footer a:hover {
     .home-profile {
         padding: 5vh 0;
     }
+}
+
+/* Publications Page Styles */
+.publications-container,
+.timeline-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1vh;
+}
+
+.publication-meta,
+.timeline-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75em;
+    padding: 2vh 0 0;
+}
+
+.publication-meta p,
+.timeline-meta p {
+    font-weight: 600;
+    font-size: 0.9em;
+    color: #666666;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.publication-content,
+.timeline-content {
+    padding: 0 0 4vh;
+    border-bottom: 1px solid rgba(53, 53, 53, 0.12);
+}
+
+.publications-container .publication-content:last-child,
+.timeline-container .timeline-content:last-child {
+    border-bottom: none;
+}
+
+.publication-title {
+    font-weight: 600;
+    line-height: 1.4;
+    padding: 1vh 0 0;
+}
+
+.publication-authors {
+    font-family: "Charter", serif;
+    padding: 1vh 0 0;
+    line-height: 1.6;
+}
+
+.publication-authors strong {
+    font-weight: 700;
+}
+
+.publication-venue {
+    font-family: "Charter", serif;
+    font-style: italic;
+    font-size: 0.9em;
+    color: #666666;
+    padding: 0.5vh 0 0;
+    line-height: 1.6;
+}
+
+.publication-abstract {
+    font-family: "Charter", serif;
+    padding: 1.5vh 0 0;
+    line-height: 1.8;
+}
+
+.publication-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.5em;
+    padding: 2vh 0 0;
+}
+
+.publication-links a {
+    color: #353535;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+    font-weight: 500;
+    font-size: 0.9em;
+}
+
+.publication-links a:hover {
+    text-decoration-thickness: 2px;
+}
+
+.publication-links a i {
+    padding-right: 0.4em;
+}
+
+.publication-pending {
+    font-size: 0.9em;
+    color: #666666;
+    font-style: italic;
+}
+
+@media screen and (min-width: 769px) {
+    .publications-container,
+    .timeline-container {
+        grid-template-columns: 200px 1fr;
+        gap: 4vw;
+    }
+
+    .publication-meta,
+    .timeline-meta {
+        display: block;
+        text-align: right;
+        padding: 0.2em 0 0;
+    }
+
+    .publication-meta .venue-tag {
+        padding-top: 0.4em;
+    }
+
+    .publication-content,
+    .timeline-content {
+        padding: 0 0 5vh;
+    }
+
+    .publication-title,
+    .entry-title {
+        padding: 0;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .publications-container,
+    .timeline-container {
+        grid-template-columns: 250px 1fr;
+        gap: 5vw;
+    }
+}
+
+/* Experience Page Styles */
+.section-title {
+    padding: 4vh 0 3vh;
+}
+
+.entry-title {
+    font-weight: 600;
+    line-height: 1.4;
+    padding: 1vh 0 0;
+}
+
+.entry-org {
+    font-family: "Charter", serif;
+    font-style: italic;
+    font-size: 0.9em;
+    color: #666666;
+    padding: 0.5vh 0 0;
+    line-height: 1.6;
+}
+
+.entry-summary {
+    font-family: "Charter", serif;
+    padding: 1.5vh 0 0;
+    line-height: 1.8;
+}
+
+.entry-detail {
+    font-family: "Charter", serif;
+    list-style: none;
+    padding: 1vh 0 0;
+    line-height: 1.8;
+}
+
+.entry-detail li {
+    position: relative;
+    padding: 0.5vh 0 0 1.1em;
+}
+
+.entry-detail li::before {
+    content: "\2014";
+    position: absolute;
+    left: 0;
+    color: #999999;
+}
+
+.entry-tools {
+    font-size: 0.85em;
+    color: #666666;
+    line-height: 1.7;
+    padding: 1.5vh 0 0;
+}
+
+.entry-tools span {
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding-right: 0.6em;
 }

@@ -3,3 +3,9 @@
 assets/fontawesome-pro-6.6.0-web
 assets/fonts/Athletics
 assets/fonts/Tiempos
+
+# IDE
+.idea/
+
+# Local-only page, not ready to publish
+experience.html
